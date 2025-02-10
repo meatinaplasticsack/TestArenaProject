@@ -43,7 +43,6 @@ class Test_02_Add_Task_Page:
         self.login_page.enter_password(self.password)
         self.login_page.click_login()
         self.driver.maximize_window()
-        time.sleep(3)
         
         # Selecting existing project from the list.
         self.logger.info("Selecting existing project from the list.")
@@ -53,60 +52,49 @@ class Test_02_Add_Task_Page:
         # Asserting that correct project was selected.
         project_selected_check = self.driver.find_element(By.XPATH, self.existing_project_xpath).is_selected()
         assert project_selected_check == True
-        time.sleep(3)
 
         # Selecting Zadania menu item from the sidebar.
         self.logger.info("Selecting \"Zadania\" from the sidebar.")
         self.sidebar = sidebar_page(self.driver)
         self.sidebar.select_sidebar_item(self.sidebar_menu_item_name)
-        time.sleep(3)
 
         # Clicking on "Add task" button.
         self.logger.info("Clicking on \"Dodaj zadanie\" link.")
         self.tasks = tasks_page(self.driver)
         self.tasks.add_task()
-        time.sleep(3)
 
         # Entering new task title.
         self.logger.info("Entering title for the new project task.")
         self.add_tasks = add_task_page(self.driver)
         self.add_tasks.enter_new_task_title(self.new_task_title)
-        time.sleep(3)
 
         # Entering new task description.
         self.logger.info("Entering description for the new project task.")
         self.add_tasks.enter_new_task_description(self.new_task_description)
-        time.sleep(3)
 
         # Entering new task release.
         self.logger.info("Entering release for the new project task.")
         self.add_tasks.enter_new_task_release(self.new_task_release)
-        time.sleep(3)
 
         # Entering new task environment.
         self.logger.info("Entering environment for the new project task.")
         self.add_tasks.enter_new_task_environment(self.new_task_environment)
-        time.sleep(3)
 
         # Entering new task versions.
         self.logger.info("Entering versions for the new project task.")
         self.add_tasks.enter_new_task_version(self.new_task_version)
-        time.sleep(3)
 
         # Selecting new task priority.
         self.logger.info("Selecting priority for the new project task.")
         self.add_tasks.select_new_task_priority(self.new_task_priority)
-        time.sleep(3)
 
         # Entering new task due date.
         self.logger.info("Entering due date for the new project task.")
         self.add_tasks.enter_new_task_due_date(self.new_task_due_date)
-        time.sleep(3)
 
         # Selecting new task assignee.
         self.logger.info("Selecting assignee for the new project task.")
         self.add_tasks.select_new_task_assignee()
-        time.sleep(3)
 
         # Clicking on "Save" button.
         self.logger.info("Saving changes for the new project task.")
